@@ -1,12 +1,17 @@
 import datetime
 
 from django.db import models
-from django.contrib.auth import User
+from django.contrib.auth.models import User
 from django.utils import timezone
 
+class Genre(models.Model):
+	name_of_genre = models.CharField(max_length = 50)
+	def __str__(self):
+		return self.name_of_genre
+
 class Musician(User):
-	user_image = models.ImageField(upload_to = '/photos', height_field = 200, width_field = 100)
-	user_genre = models.ForeignKey(Genre)
+	user_image = models.ImageField(upload_to = '/photos', height_field = 200, width_field = 100, max_length=100, blank = True)
+	user_genre = models.ForeignKey(Genre, blank = True)
 	def __str__(self):
 		return self.user_name
 	
@@ -21,7 +26,7 @@ class Audio(models.Model):
 
 
 class Comment(models.Model):
-	comment_writer = models.OneToOneField(User)
+	comment_writer = models.OneToOneField(User,related_name = 'writer')
 	comment_context = models.CharField(max_length = 200)
 	pub_date = models.DateTimeField('date published', blank = True)
 	comment_to = models.ForeignKey(User)
@@ -34,10 +39,7 @@ class Point(models.Model):
 	def __str__(self):
 		return self.value
 	
-class Genre(models.Model):
-	name_of_genre = models.CharField(max_length = 50)
-	def __str__(self):
-		return self.name_of_genre
+
 	
 
 
