@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html>
 <head>
 <meta charset="utf-8"> 
 <title>MuzWorld|Регистрация</title> 
-    <link href="MuzWorld/static/style/bootstrap.min.css" rel="stylesheet">
-    <link href="MuzWorld/static/style/style.css" rel="stylesheet">
+    <link href="{% static "style/bootstrap.min.css"%}" rel="stylesheet">
+    <link href="{% static "style/style.css"%}" rel="stylesheet">
 <style>
     body{
-        background-image: url(MuzWorld/static/equalizer.png);
+        background-image: url({% static "img/equalizer.png"%});
         background-size: cover;
         background-color: black;
     }
