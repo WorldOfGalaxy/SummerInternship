@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>MuzWorld|Регистрация</title> 
+    <link href="MuzWorld/static/style/bootstrap.min.css" rel="stylesheet">
+    <link href="MuzWorld/static/style/style.css" rel="stylesheet">
+<style>
+    body{
+        background-image: url(MuzWorld/static/equalizer.png);
+        background-size: cover;
+        background-color: black;
+    }
+    .container{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -150px;
+        margin-top: -140px;
+        width: 300px;
+        height: 260px;
+        background-color: black;
+        text-align: left;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        font-size: 12px;
+        color: orange;
+        border: 2px solid;
+        border-style: ridge;
+        border-radius: 15px;
+    }
+    .lines{
+        text-decoration-color: snow;
+    }
+    #login{
+        width: 270px;
+    }
+    #nikname{
+        width: 270px;
+    }
+    #pass1{
+        width: 270px;
+    }
+    #pass2{
+        width: 270px;
+    }
+    #mail{
+        width: 270px;
+    }
+    .reset {      
+        position: relative;
+        color: black;
+        font-weight: bold;
+        text-decoration: none;
+        text-shadow: -1px -1px white;
+        user-select: none;
+        padding: .3em 1em;
+        outline: none;
+        border-radius: 10px;
+        background-color: orange;
+        background-image: linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255,255,255,.7) 0%, rgba(255,255,255,.5) 50%, rgba(0,0,0,0) 50%);
+        background-repeat: no-repeat;
+        background-size: 200% 100%, auto;
+        background-position: 200% 0, 0 0;
+        box-shadow: rgba(0,0,0,.3) 0 2px 5px;
+    } 
+    .reset:active {
+        top: 1px;
+        box-shadow: none;
+    }
+    .reset:hover {
+        transition: .5s linear;
+        background-position: -200% 0, 0 0;
+    }
+    .submit{
+        position: relative;
+        color: black;
+        font-weight: bold;
+        text-decoration: none;
+        text-shadow: -1px -1px white;
+        user-select: none;
+        padding: .3em 2em;
+        outline: none;
+        border-radius: 10px;
+        background-color: orange;
+        background-image: linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255,255,255,.7) 0%, rgba(255,255,255,.5) 50%, rgba(0,0,0,0) 50%);
+        background-repeat: no-repeat;
+        background-size: 200% 100%, auto;
+        background-position: 200% 0, 0 0;
+        box-shadow: rgba(0,0,0,.3) 0 2px 5px;
+    } 
+    .submit:active {
+        top: 1px;
+        box-shadow: none;
+    }
+    .submit:hover {
+        transition: .5s linear;
+        background-position: -200% 0, 0 0;
+    }
+</style>
+</head>
+    
+<body>
+<div class="container">
+    <div class="forms">
+        <form action="" method="POST" name="form">
+            <div class="lines">
+                Логин:<br>
+                <input type="text" name="login" id="login"><br>              
+                Ник:<br>
+                <input type="text" name="nikname" id="nikname"><br>      
+                Пароль:<br>
+                <input type="password" name="password1" id="pass1"><br>
+                Повторите пароль:<br>    
+                <input type="password" name="password2" id="pass2"><br>
+                E-mail:<br>
+                <input type="text" name="mail" id="mail"><br>
+            </div><br>
+        <input type="reset" class="reset" value="Очистить">
+            <input type="submit" class="submit" value="Зарегистрироваться">   
+        </form>
+    </div>
+</div>
+</body>
+</html>
