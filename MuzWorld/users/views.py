@@ -15,6 +15,6 @@ def groups(request, user_id):
 def friends(request, user_id):
 	return HttpResponse("Here will be friends of user %s" % user_id)
 
-def registration(request):
-    return render(request, 'users/register.html')
+def user_news(request, user_id):
+    return HttpResponse("Here will be news of user %s" % user_id)
 
