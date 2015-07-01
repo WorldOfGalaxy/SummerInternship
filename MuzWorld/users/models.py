@@ -10,11 +10,12 @@ class Genre(models.Model):
 		return self.name_of_genre
 
 class Musician(models.Model):
-	user = models.ForeignKey(User, default = None)
+	user = models.ForeignKey(User)
 	user_image = models.ImageField(upload_to = '/photos', height_field = 200, width_field = 100, max_length=100, blank = True)
 	user_genre = models.ForeignKey(Genre, blank = True)
 	def __str__(self):
-		return self.user_name
+		return self.user.username
+	
 	
 class Audio(models.Model):
 	audio_owner = models.ForeignKey(User)

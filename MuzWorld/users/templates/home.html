@@ -10,7 +10,7 @@
     
     <link href="{% static "style/bootstrap.css" %}"rel="stylesheet">
     <link href="{% static "style/bootstrap-responsive.css"%}" rel="stylesheet">
-    <style>
+      <style>
         body {
             padding-top: 60px;
         } 
@@ -50,11 +50,51 @@
             color: darkorange;
             font-weight: bold;
         }
+        .miniblock{
+            position: relative;
+            top: -70px;
+            left: 130px;
+            float: right;            
+        }
+        .avatar{
+            position: relative;
+            left: 100px;
+            top: 30px;
+        }
+        .miniblock .labeled{
+            float: right;
+            font-size: 15px;
+        }
+        .miniblock .label{
+            color: black;
+            font-size: 16px;
+        }
+        #info{
+            padding-top: 30px;
+        }
+        .audios{
+            padding-top: 20px;
+        }
+        .th{
+            left: 100px;
+            border: 1px solid black;
+        }
+        .audio_box {
+            width: 210px;
+            height: 210px;
+            border: 1px solid black;
+            text-align:center;
+            
+        }
+        .box{
+            border-collapse:separate;
+            border-spacing: 60px 35px;
+        }
+        .name_audio{
+            vertical-align: text-top;
 </style>
 </head>
-
 <body>
-
 <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -63,7 +103,6 @@
 <nav>
       <ul>
           <a href="#home"><li>Профиль</li></a>
-          <a href="#audio"><li>Аудиозаписи</li></a>
           <a href="#news"><li>Новости</li></a>
           <a href="#setting"><li>Редактирование</li></a>
       </ul>
@@ -72,17 +111,63 @@
     
 <div class="container">
     <div id="profile">  
-        
-        <div id="page_avatar"><a id="profile_photo_link"><img width="200" height="253" src="#add_photo" alt="add"></a></div>
-            <div id="owner_photo_bubble_wrap">
-                <div id="owner_photo_bubble"><div class="owner_photo_bubble_action owner_photo_bubble_action_update">
-                    <a class="owner_photo_bubble_action_in" href="#new_photo">Загрузить новую фотографию</a>
+        <div class="avatar">
+            <table>
+                <tr>
+                    <td>
+                    <div id="page_avatar"><a id="profile_photo_link"><img width="200" height="253" src="#add_photo" alt="add"></a></div>
+            <div id="photo_update" href="#new_photo"><a>Загрузить новую фотографию</a>
                     </div>
                 </div>
-            </div>   
-       </div>
+            </div>  
+        </div>
+                    </td>
+    <td>
+        <div class="miniblock">
+            <h4 class="page_top">
+    <div class="page_name" >{{user.user.username}}</div>
+  
+  </h4>
+            <div id="info">
+            <div class="label">Favorite genres:</div>
+        <div class="labeled">{{user.user_genre}}</div></div>
 </div>
-
+    </td>
+                </tr>
+       </table>
+       
+</div>
+        </div>        
+    </div>
+<div class="audios">
+    <div class="container">
+        <table class="box">
+            <tr><th><h3>Audios</h3></th></tr>
+            <col class="col1">
+   <col span="3" class="coln">
+            <tr>
+			{% for audio in audios %}
+                <td class="audio_box" valign="bottom" align="center">
+                    <div class="name_audio">
+                    {{audio.audio_name}}
+                    </div>
+                    <br><br><br>                   
+                    <audio controls>
+    <source src="#audio_file" type="audio/mp3">
+                    </audio>
+                </td>
+				{% endfor %}
+                    
+           </tr>
+            <tr>
+                    <td class="audio_box">
+                    <a href="#add_audio">Добавить</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+    
    
    
     <script src="{% static "js/jquery.js"%}"></script>

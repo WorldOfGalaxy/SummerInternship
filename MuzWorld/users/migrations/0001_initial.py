@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
-import django.contrib.auth.models
 from django.conf import settings
 
 
@@ -10,14 +9,13 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('auth', '0006_require_contenttypes_0002'),
     ]
 
     operations = [
         migrations.CreateModel(
             name='Audio',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, auto_created=True, verbose_name='ID')),
+                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
                 ('audio_singer', models.CharField(max_length=50)),
                 ('audio_name', models.CharField(max_length=50)),
                 ('audio_track', models.FileField(upload_to='/audio')),
@@ -26,58 +24,38 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Comment',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, auto_created=True, verbose_name='ID')),
+                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
                 ('comment_context', models.CharField(max_length=200)),
-                ('pub_date', models.DateTimeField(verbose_name='date published', blank=True)),
+                ('pub_date', models.DateTimeField(blank=True, verbose_name='date published')),
+                ('comment_to', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('comment_to_audio', models.ForeignKey(to='users.Audio')),
+                ('comment_writer', models.OneToOneField(related_name='writer', to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.CreateModel(
             name='Genre',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, auto_created=True, verbose_name='ID')),
+                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
                 ('name_of_genre', models.CharField(max_length=50)),
             ],
         ),
         migrations.CreateModel(
             name='Musician',
             fields=[
-                ('user_ptr', models.OneToOneField(serialize=False, to=settings.AUTH_USER_MODEL, parent_link=True, primary_key=True, auto_created=True)),
-                ('user_image', models.ImageField(height_field=200, width_field=100, upload_to='/photos')),
-                ('user_genre', models.ForeignKey(to='users.Genre')),
-            ],
-            options={
-                'abstract': False,
-                'verbose_name_plural': 'users',
-                'verbose_name': 'user',
-            },
-            bases=('auth.user',),
-            managers=[
-                ('objects', django.contrib.auth.models.UserManager()),
+                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
+                ('user_image', models.ImageField(upload_to='/photos', width_field=100, blank=True, height_field=200)),
+                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('user_genre', models.ForeignKey(to='users.Genre', blank=True)),
             ],
         ),
         migrations.CreateModel(
             name='Point',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, auto_created=True, verbose_name='ID')),
+                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
                 ('value', models.IntegerField(default=0)),
                 ('point_maker', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
                 ('point_to_audio', models.ForeignKey(to='users.Audio')),
             ],
-        ),
-        migrations.AddField(
-            model_name='comment',
-            name='comment_to',
-            field=models.ForeignKey(to=settings.AUTH_USER_MODEL),
-        ),
-        migrations.AddField(
-            model_name='comment',
-            name='comment_to_audio',
-            field=models.ForeignKey(to='users.Audio'),
-        ),
-        migrations.AddField(
-            model_name='comment',
-            name='comment_writer',
-            field=models.OneToOneField(to=settings.AUTH_USER_MODEL, related_name='writer'),
         ),
         migrations.AddField(
             model_name='audio',

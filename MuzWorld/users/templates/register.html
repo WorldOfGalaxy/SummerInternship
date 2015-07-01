@@ -104,12 +104,14 @@
 <body>
 <div class="container">
     <div class="forms">
-        <form action="" method="POST" name="form">
+        <form action="/registration/" method="POST" name="form">
+		{% csrf_token %}
+		{{form}}
             <div class="lines">
                 Логин:<br>
                 <input type="text" name="login" id="login"><br>              
-                Ник:<br>
-                <input type="text" name="nikname" id="nikname"><br>      
+                Жанр:<br>
+                <input type="text" name="genre" id="genre"><br>      
                 Пароль:<br>
                 <input type="password" name="password1" id="pass1"><br>
                 Повторите пароль:<br>    
