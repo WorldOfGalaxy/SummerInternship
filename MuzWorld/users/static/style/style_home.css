@@ -1,0 +1,112 @@
+ body {
+            padding-top: 60px;
+        } 
+        
+        Nav ul{
+            padding: 0px;
+            margin: 0px;
+            list-style-type: none;
+        }
+        
+        Nav li{
+            padding: .4em 1em;
+            margin: 10px;    
+            height: 35px;
+            width: 170px;
+            text-align: center;
+            float: left;
+            font-weight: bold;
+            color: white;
+        }
+        
+        Nav li:hover{
+            background-color:darkorange;
+            border-spacing:10px;
+            border-radius: 10px;
+         
+        }
+        
+        Nav ul li.last{
+            border-right: none;
+        }
+        
+        Nav li a{
+            text-decoration: none;
+        }
+        #brand{
+            color: darkorange;
+            font-weight: bold;
+        }
+        .miniblock{
+            position: relative;
+            top: -70px;
+            left: 130px;
+            float: right;            
+        }
+        .avatar{
+            position: relative;
+            left: 100px;
+            top: 30px;
+        }
+        .miniblock .labeled{
+            float: right;
+            font-size: 15px;
+        }
+        .miniblock .label{
+            color: black;
+            font-size: 16px;
+        }
+        #info{
+            padding-top: 30px;
+        }
+        .audios{
+            padding-top: 20px;
+        }
+        .th{
+            left: 100px;
+            border: 1px solid black;
+        }
+        .audio_box {
+            width: 210px;
+            height: 210px;
+            border: 1px solid black;
+            text-align:center;
+            
+        }
+        .box{
+            border-collapse:separate;
+            border-spacing: 60px 35px;
+        }
+        .name_audio{
+            vertical-align: text-top;
+        }
+        .button{
+            position: relative;
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            text-shadow: -1px -1px white;
+            user-select: none;
+            padding: .3em 2em;
+            outline: none;
+            border-radius: 10px;
+            background-color: orange;
+            background-image: linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255,255,255,.7) 0%, rgba(255,255,255,.5) 50%, rgba(0,0,0,0) 50%);
+            background-repeat: no-repeat;
+            background-size: 200% 100%, auto;
+            background-position: 200% 0, 0 0;
+            box-shadow: rgba(0,0,0,.3) 0 2px 5px;
+            float: right;
+            margin-top: 11px;
+        } 
+        .button:active {
+            top: 1px;
+            box-shadow: none;
+        }
+        .button:hover {
+            transition: .5s linear;
+            background-position: -200% 0, 0 0;
+        }
+        .input-small{
+            border-radius: 5px;
+        }
